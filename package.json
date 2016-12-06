@@ -4,7 +4,8 @@
   "description": "Udemy Node.js course, section 5, web servers, application deployment, Express",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "William Reilly",
   "license": "MIT",
