@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+{{> header pageTitle=pageTitle}}
+<!-- <h2>{{pageTitle}} non-partial</h2> -->
+<p>welcomeMessage {{welcomeMessage}}</p>
+<p>{{screamIt welcomeMessage}}</p>
+<p>Home Page add'l. paragraph.</p>
+<h3>Plus which ml</h3>
+<div>
+    <a href="/wrong-o">Click me wrong-o</a>
+</div>
+<div>
+    <a href="/about">Click me about-o</a>
+</div>
+
+<!--  USE PARTIAL INSTEAD
+<footer>
+    <p>Copyright (c) 2016 (hey! almost {{currentYear}} + 1!)</p>
+</footer>
+-->
+asdf
+<!-- // {{> footer currentYear=currentYear}} / -->
+{{> footer }}
+
+</body>
+</html>

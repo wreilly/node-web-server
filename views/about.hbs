@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our About-ful Pagina v2 a la HBS</title>
+</head>
+<body>
+<h2>{{pageTitle}} Aboutina v2 a la Handlebars</h2>
+<p>Bit o' text or was that Moustache</p>
+
+<!--  USE PARTIAL INSTEAD
+<footer>
+    <p>Copyright (c) 2016 (hey! almost {{currentYear}} + 1!)</p>
+</footer>
+-->
+
+{{> footer currentYear=currentYear}}
+
+</body>
+</html>
