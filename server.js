@@ -43,11 +43,15 @@ next(); // Gotta call this, eventually!
 
 });
 
+
+/* ****** MAINTENANCE PAGE ******* */
+/*
 app.use( (req, res, next) => {
    res.render('maintenance.hbs');
     // For our MAINTENANCE Page, we do NOT call any "next()" - We just let it/the-user SIT THERE
     // (till kingdom come...)
 });
+*/
 
 // Move STATIC *below* our "Maintenance Page" check
 app.use(express.static(__dirname + '/public'));
