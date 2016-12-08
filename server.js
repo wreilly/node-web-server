@@ -10,24 +10,17 @@ const port = process.env.PORT || 3000;
 
 var app = express();
 
-// __dirname
-/*
-$ pwd
-/Users/william.reilly/dev/Node/Udemy-NODE-Complete-Developer-Course-Mead/05WebApp/node-web-server
- */
-
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 
 // Move STATIC *below* our "Maintenance Page" check
 // app.use(express.static(__dirname + '/public'));
 
-
 // EXPRESS MIDDLEWARE
 app.use( (req, res, next) => {
     let now = new Date().toString();
 
-let log = `${now}: hoo-ha : ${req.method} ${req.url} ${req.originalUrl}`; // TO TERMINAL! Not Browser.
+let log = `${now}: hoo-ha : ${req.method} ${req.url} ${req.originalUrl}`;
 
 // NODE V6:
 fs.appendFile('server.log', log + '\n');
@@ -40,7 +33,8 @@ fs.appendFile('server.log', log + '\n', (err) => {
 });
 */
 
-console.log('log! : ', log);
+console.log('log! : ', log); // TO TERMINAL! Not Browser.
+
 next(); // Gotta call this, eventually!
 
 });
@@ -55,7 +49,7 @@ app.use( (req, res, next) => {
 });
 */
 
-// Move STATIC *below* our "Maintenance Page" check
+// Moved STATIC down here, *below* our "Maintenance Page" check
 app.use(express.static(__dirname + '/public'));
 
 hbs.registerHelper('screamIt', (text) => {
@@ -66,18 +60,14 @@ hbs.registerHelper('getCurrentYear', () => {
    return new Date().getFullYear();
 });
 
-let currentYearFing = new Date().getFullYear();
+// let currentYearFing = new Date().getFullYear();
 
 app.get('/', (req, res) => {
     res.render('home.hbs', {
-    pageTitle: 'HOME Page data thing',
-        welcomeMessage: 'Something for you here on top',
+    pageTitle: 'HOME Page data thing999',
+    welcomeMessage: 'Something for you here on top',
     // currentYear: currentYearFing, << Now a HELPER
 });
-    /*res.send({
-        heho: 'ten',
-        json: 'yes'
-    });*/
 });
 
 app.get('/about', (req, res) => {
@@ -85,6 +75,13 @@ app.get('/about', (req, res) => {
 res.render('about.hbs', {
     pageTitle: 'About Page data thing',
     // currentYear: currentYearFing, << Now a HELPER
+});
+});
+
+
+app.get('/projects', (req, res) => {
+   res.render('projects.hbs', {
+       pageTitle: 'Our Portfolio - hoo-ha',
 });
 });
 
@@ -96,9 +93,8 @@ res.send({
 });
 
 /*
-HEROKU
-ENV variable
-
+For HEROKU
+Now use ENV variable
  */
 // app.listen(3000, () => {
 app.listen(port, () => {

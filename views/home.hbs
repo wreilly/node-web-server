@@ -5,8 +5,15 @@
     <title>Home Page</title>
 </head>
 <body>
-{{> header pageTitle=pageTitle}}
-<!-- <h2>{{pageTitle}} non-partial</h2> -->
+
+<!-- No need to pass in pageTitle param to invoked partial here.
+The partial has already picked up the param value itself, from
+the invocation back in server.js
+{{> header pageTitle=pageTitle}} << Not needed
+-->
+{{> header }}
+
+<h2>{{pageTitle}} non-partial</h2>
 <p>welcomeMessage {{welcomeMessage}}</p>
 <p>{{screamIt welcomeMessage}}</p>
 <p>Home Page add'l. paragraph.</p>
