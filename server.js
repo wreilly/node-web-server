@@ -1,6 +1,9 @@
 /**
  * Created by william.reilly on 12/5/16.
  */
+/* June 2020
+In WebStorm, configured Node.js to be NVM's Node 12.4
+ */
 
 const express = require('express');
 const hbs = require('hbs');
@@ -22,16 +25,19 @@ app.use( (req, res, next) => {
 
 let log = `${now}: hoo-ha : ${req.method} ${req.url} ${req.originalUrl}`;
 
+/* June 2020 (whoa)
+TypeError [ERR_INVALID_CALLBACK]: Callback must be a function. Received undefined
+ */
 // NODE V6:
-fs.appendFile('server.log', log + '\n');
+// NO >> fs.appendFile('server.log', log + '\n');
 // NODE V7:
-/*
+/* */
 fs.appendFile('server.log', log + '\n', (err) => {
     if (err) {
         console.log('Huh. Unable to append to server.log!');
     }
 });
-*/
+/* */
 
 console.log('log! : ', log); // TO TERMINAL! Not Browser.
 
