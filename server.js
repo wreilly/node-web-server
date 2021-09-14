@@ -31,7 +31,7 @@ TypeError [ERR_INVALID_CALLBACK]: Callback must be a function. Received undefine
 // NODE V6:
 // NO >> fs.appendFile('server.log', log + '\n');
 // NODE V7:
-/* */
+/* below also worked okay w NODE V12. Bon. */
 fs.appendFile('server.log', log + '\n', (err) => {
     if (err) {
         console.log('Huh. Unable to append to server.log!');
